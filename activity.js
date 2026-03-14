@@ -13,24 +13,33 @@ Using the following array of objects,
 
 // (1) Write an arrow function that adds a new entry to bookList
 const addBook = (newTitle, newAuthor) => {
-    // your code here
+    bookList.push({ title: newTitle, author: newAuthor });
+    return bookList;
 };
 
 // (2) Write an arrow function that removes a specific book from the bookList
 const removeBook = (removeTitle, removeAuthor) => {
-    // your code here
+    const index = bookList.findIndex(
+        (book) => book.title === removeTitle && book.author === removeAuthor
+    );
+
+    if (index !== -1) {
+        bookList.splice(index, 1);
+    }
+
+    return bookList;
 };
 
 // (3) Write an arrow function that prints all book titles using .forEach()
 const printBooks = () => {
-    // your code here
+    bookList.forEach((book) => console.log(book.title));
 };
 
 /* Intermediate Challenge */
 
 // (4) Write a one-line arrow function that takes in a number and returns
 // whether the number is positive or negative using a ternary operator
-const numberSign = (n) => null; //  remove null type and add your code here
+const numberSign = (n) => (n >= 0 ? "positive" : "negative"); //  remove null type and add your code here
 
 /* (5) Write a switch statement for a 'day' variable that prints something
 based off of what day of the week it is */
@@ -38,13 +47,31 @@ based off of what day of the week it is */
 let day = "Monday";
 
 switch (day) {
+    case "Monday":
+        console.log("Start of the week.");
+        break;
+    case "Friday":
+        console.log("Almost the weekend.");
+        break;
+    case "Saturday":
+    case "Sunday":
+        console.log("It is the weekend.");
+        break;
+    default:
+        console.log("It is a regular day.");
 }
 
 /* (6) Write an arrow function that takes in a number and returns the sum
 of every number from 1 up to that number */
 
 const sumUp = (n) => {
-    // your code here
+    let sum = 0;
+
+    for (let i = 1; i <= n; i++) {
+        sum += i;
+    }
+
+    return sum;
 };
 
 /* Harder Challenge */
